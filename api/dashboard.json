@@ -1,0 +1,35 @@
+{   
+  "dallas": {
+    "totalRevenue" : {
+      "id": 1,
+      "name": "Dallas",
+      "percent": 32,
+      "revenue": 12200,
+      "others": 25500
+    },
+    "yearlyProfit": [1500.00, 3000.00, 1000.00, 1000.00, 300.00],
+    "yearlyRevenue": [4500.00, 3800.00, 1500.00, 1700.00, 700.00]
+  },
+  "seattle": {
+    "totalRevenue" : {
+      "id": 2,
+      "name": "Seattle",
+      "percent": 35,
+      "revenue": 13500,
+      "others": 24200
+    },
+    "yearlyProfit": [200.00, 900.00, 500.00, 1000.00, 2000.00],
+    "yearlyRevenue": [600.00, 1600.00, 3500.00, 5000.00, 2800.00]
+  },
+  "boston": {
+    "totalRevenue" : {
+      "id": 3,
+      "name": "Boston",
+      "percent": 31,
+      "revenue": 12000,
+      "others": 25700
+    },
+    "yearlyProfit": [1500.00, 170.00, 190.00, 2100.00, 2300.00],
+    "yearlyRevenue": [2000.00, 2200.00, 2400.00, 2600.00, 2800.00]
+  }
+}

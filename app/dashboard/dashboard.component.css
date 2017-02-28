@@ -1,0 +1,11 @@
+chart {
+    display: block;
+}
+
+.chart-wrapper .chart-title > a {
+  color: #b2c831;
+}
+
+.chart-wrapper .chart-title > a:hover {
+  color: #fff;
+}

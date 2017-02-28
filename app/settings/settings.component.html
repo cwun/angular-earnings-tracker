@@ -1,0 +1,81 @@
+<div class="animated slideInRight">
+    <div class='row'>
+        <div class='col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6'>
+        <div class="chart-wrapper">
+                <div class="chart-title">
+                    <span>{{name}}</span>
+                </div>
+                <div class="alert alert-warning text-center">
+                    <strong>Attention!</strong> All fields are required (range between -9999 and 9999).
+                </div>
+                <div class="form-stage text-center">
+                    <form [formGroup]="settingsForm" (ngSubmit)="onSubmit()">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-xs-offset-2 col-xs-5 col-sm-offset-3 col-sm-4 text-center">
+                                    <label class="control-label input-lg text-muted">Revenue</label>
+                                </div>
+                                <div class="col-xs-4 col-sm-4 text-center">
+                                    <label class="control-label input-lg text-muted">Profit</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-xs-2 col-sm-3 col-md-3 input-lg">2013</label>
+                                <div class="col-xs-5 col-sm-4">
+                                    <input class="form-control" id="revenue2013" formControlName="revenue2013" type="number">
+                                </div>
+                                <div class="col-xs-4 col-sm-4">
+                                    <input class="form-control" id="profit2013" formControlName="profit2013" type="number">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-xs-2 col-sm-3 col-md-3 input-lg">2014</label>
+                                <div class="col-xs-5 col-sm-4">
+                                    <input class="form-control" id="revenue2014" formControlName="revenue2014" type="number">
+                                </div>
+                                <div class="col-xs-4 col-sm-4">
+                                    <input class="form-control" id="profit2014" formControlName="profit2014" type="number">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-xs-2 col-sm-3 col-md-3 input-lg">2015</label>
+                                <div class="col-xs-5 col-sm-4">
+                                    <input class="form-control" id="revenue2015" formControlName="revenue2015" type="number">
+                                </div>
+                                <div class="col-xs-4 col-sm-4">
+                                    <input class="form-control" id="profit2015" formControlName="profit2015" type="number">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-xs-2 col-sm-3 col-md-3 input-lg">2016</label>
+                                <div class="col-xs-5 col-sm-4">
+                                    <input class="form-control" id="revenue2016" formControlName="revenue2016" type="number">
+                                </div>
+                                <div class="col-xs-4 col-sm-4">
+                                    <input class="form-control" id="profit2016" formControlName="profit2016" type="number">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-xs-2 col-sm-3 col-md-3 input-lg">2017</label>
+                                <div class="col-xs-5 col-sm-4">
+                                    <input class="form-control" id="revenue2017" formControlName="revenue2017" type="number">
+                                </div>
+                                <div class="col-xs-4 col-sm-4">
+                                    <input class="form-control" id="profit2017" formControlName="profit2017" type="number">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div>
+                                    <button type="button" class="btn btn-default" (click)="gotoDashboard()">Cancel</button>&nbsp;
+                                    <button type="submit" class="btn btn-success" [disabled]="checkForm()">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

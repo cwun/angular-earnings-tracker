@@ -1,0 +1,99 @@
+<div class="animated slideInRight">
+    <!-- First Row -->  
+    <div class="row">
+        <!-- Dallas's Total Revenue Information -->
+        <div class="col-sm-6 col-md-3">
+            <div class="chart-wrapper">
+                <div class="chart-title">
+                    <span>Revenue</span>
+                    <a (click)="gotoSettings(dallasOptions.id)"><span class="pull-right glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+                </div>
+                <div class="chart-stage text-center">
+                    <chart [options]="dallasOptions"></chart>
+                </div>
+            </div>
+        </div>
+        <!-- End Dallas's Total Revenue Information -->
+        <!-- Seattle's Total Revenue Information -->
+        <div class="col-sm-6 col-md-3">
+            <div class="chart-wrapper">
+                <div class="chart-title">
+                    Revenue
+                    <a (click)="gotoSettings(seattleOptions.id)"><span class="pull-right glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+                </div>
+                <div class="chart-stage text-center">
+                    <chart [options]="seattleOptions"></chart>
+                </div>
+            </div>
+        </div>
+        <!-- End Seattle's Total Revenue Information -->
+        <!-- Boston's Total Revenue Information -->
+        <div class="col-sm-6 col-md-3">
+            <div class="chart-wrapper">
+                <div class="chart-title">
+                    Revenue
+                    <a (click)="gotoSettings(bostonOptions.id)"><span class="pull-right glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+                </div>
+                <div class="chart-stage text-center">
+                    <chart [options]="bostonOptions"></chart>
+                </div>
+            </div>
+        </div>
+        <!-- End Boston's Total Revenue Information -->
+        <!-- Thank You Block -->
+        <div class="col-sm-6 col-md-3">
+            <div class="chart-wrapper">
+                <div class="chart-title">
+                    Earnings Tracker
+                </div>
+                <div class="chart-stage">
+                    <h3 class="text-center">Thanks for Staying Tuned!</h3>
+                    <br/>
+                    <h4 class="text-center">Made with <i class="fa fa-heart" aria-hidden="true" style="color: #f48260;"></i> by Cathy Wun.</h4>
+                    <p class="text-center"><strong>You have 4 tutorials:</strong></p>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-11 col-md-11">
+                            <ul>
+                                <li><strong>Part 1:</strong><a href="https://www.cc28tech.com/earnings-tracker-asp-net-core-web-api-part-1" target="_blank"> Create a Web API Application in C#</a></li> 
+                                <li><strong>Part 2:</strong><a href="https://www.cc28tech.com/earnings-tracker-asp-net-core-web-api-part-2" target="_blank"> Create Web API Services</a></li>
+                                <li><strong>Part 3:</strong><a href="https://www.cc28tech.com/angular-2-earnings-tracker-typescript-part-1" target="_blank"> Create an Angular 2 SPA in TypeScript</a></li>
+                                <li><strong>Part 4:</strong><a href="https://www.cc28tech.com/angular-2-earnings-tracker-typescript-part-2" target="_blank"> Create Angular 2 Feature Modules in TypeScript</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="top text-center"><strong>Thanks <a href="http://www.highcharts.com/" target="_blank">Highcharts</a> for their awesome charts.</strong></p>
+                </div>
+            </div>
+        </div>
+        <!--End Thank You Block-->
+    </div>
+    <!-- End First Row -->
+
+    <!-- Second Row -->
+    <div class="row">
+    <!-- Yearly Profit Per Office -->
+    <div class="col-sm-12 col-md-6">
+  	    <div class="chart-wrapper">
+    	    <div class="chart-title">
+                Profit
+            </div>
+            <div class="chart-stage">
+                <chart [options]="profitChartOptions"></chart>
+            </div>
+        </div>
+    </div>
+    <!-- End Yearly Profit Per Office -->
+    <!-- Yearly Revenue Per Office -->
+    <div class="col-sm-12 col-md-6">
+        <div class="chart-wrapper">
+            <div class="chart-title">
+                Revenue By Office Location
+            </div>
+                <div class="chart-stage">
+                <chart [options]="revenueChartOptions"></chart>
+            </div>
+        </div>
+    </div>
+    <!-- End Yearly Profit Per Office -->
+</div>
+</div>
