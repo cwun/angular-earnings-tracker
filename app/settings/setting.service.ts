@@ -3,7 +3,7 @@ import { Injectable }               from '@angular/core';
 import { Observable }               from 'rxjs/Rx';
 import 'rxjs/add/operator/toPromise';
 
-import { Setting }                  from './setting.model';
+import { Income }                  from './income.model';
 
 @Injectable()
 export class SettingService {
@@ -15,14 +15,14 @@ export class SettingService {
 
     constructor(private http: Http) { }
 
-    getSetting(id: number) : Observable<Setting> {
+    getIncome(id: number) : Observable<Income> {
         const url = (this.apiUrl === 'api/settings.json') ? this.apiUrl : `${this.apiUrl}/${id}`;
         return this.http.get(url)
             .map(this.extractData)
             .catch(this.handleError);
     }
 
-    updateSetting(item: Setting) : Observable<any> {
+    updateIncome(item: Income) : Observable<any> {
         // This api call is designed to work with the database at the back-end
         const url = `${this.apiUrl}/${item.id}`;
         return this.http.put(url, JSON.stringify(item), {headers: this.headers})

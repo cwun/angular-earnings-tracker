@@ -6,7 +6,6 @@ import { FormGroup, FormBuilder, Validators }   from '@angular/forms';
 import { Modal }                                from 'angular2-modal/plugins/bootstrap';
 
 import { SettingService }                       from './setting.service';
-import { Setting }                              from './setting.model';
 import { ValidationService }                    from './validation.service';
 
 @Component ({
@@ -66,7 +65,7 @@ export class SettingsComponent implements OnInit {
         if (this.checkForm()) 
             return;
 
-        this.settingService.updateSetting(this.settingsForm.value)
+        this.settingService.updateIncome(this.settingsForm.value)
             .subscribe(data => {
                 this.result = data
                 if (data && data > 0) {

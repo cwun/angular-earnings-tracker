@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component ({
-    selector: 'tt-navbar'
+    selector: 'et-navbar'
     ,templateUrl: 'app/navbar/navbar.component.html'
 })
 

@@ -1,4 +1,4 @@
-export class Setting {
+export class Income {
     id: number = 0;
     name: string = '';
     revenue2013: number = 0;

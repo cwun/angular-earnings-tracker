@@ -6,12 +6,12 @@ import { BootstrapModalModule }     from 'angular2-modal/plugins/bootstrap';
 
 
 /* Settings Feature Module */
-import { SettingsComponent }         from './settings.component';
-import { SettingService }            from './setting.service';
-import { SettingsResolver }          from './settings-resolver.service';
+import { SettingsComponent }        from './settings.component';
+import { SettingService }           from './setting.service';
+import { SettingsResolver }         from './settings-resolver.service';
 
 /* Routing Module */
-import { SettingsRoutingModule }     from './settings-routing.module';
+import { SettingsRoutingModule }    from './settings-routing.module';
 
 @NgModule({
     imports:      [ SettingsRoutingModule, 

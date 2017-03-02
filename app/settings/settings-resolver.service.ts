@@ -10,6 +10,6 @@ export class SettingsResolver implements Resolve<any> {
 
     resolve(route: ActivatedRouteSnapshot): Observable<any> {
         let id = route.params['id'];
-        return this.settingService.getSetting(id);
+        return this.settingService.getIncome(id);
     }
 }
