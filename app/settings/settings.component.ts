@@ -1,5 +1,5 @@
 import { ActivatedRoute }                       from '@angular/router';
-import { Component, Input, OnInit, ViewContainerRef } from '@angular/core';
+import { Component, OnInit, ViewContainerRef }  from '@angular/core';
 import { Router }                               from '@angular/router';
 import { FormGroup, FormBuilder, Validators }   from '@angular/forms';
 
@@ -12,13 +12,14 @@ import { ValidationService }                    from './validation.service';
     selector:     'et-settings'
     ,templateUrl: 'app/settings/settings.component.html'
     ,styleUrls:   [ 'app/settings/settings.component.css' ]
-    ,providers:   [Modal]
+    ,providers:   [ Modal ]
 })
 
 export class SettingsComponent implements OnInit {
     settingsForm: FormGroup;
-    public result: number = 10;
     name: string;
+    MIN_VALUE = -9999;
+    MAX_VALUE = 9999;
 
     constructor(private router: Router, 
                 private route: ActivatedRoute, 
@@ -26,10 +27,12 @@ export class SettingsComponent implements OnInit {
                 private formBuilder: FormBuilder,
                 private vcRef: ViewContainerRef, 
                 public modal: Modal) {
+
         modal.overlay.defaultViewContainer = vcRef;
     }
 
     ngOnInit() {
+        /* Initialize this.* bindable members with formData.* members */
         let formData = this.route.snapshot.data['settings'];
         this.name = formData.name;
         this.buildForm(formData);
@@ -37,27 +40,30 @@ export class SettingsComponent implements OnInit {
     }
 
     buildForm(data): void {
+        // Define and initialize each settingsForm property with [ initial value, a list of validators]
         this.settingsForm = this.formBuilder.group ({
             'id': [data.id, Validators.required],
             'name': [data.name, Validators.required],
-            'revenue2013': [data.revenue2013, [Validators.required, ValidationService.minValidator(-9999), ValidationService.maxValidator(9999)]],
-            'profit2013': [data.profit2013, [Validators.required, ValidationService.minValidator(-9999), ValidationService.maxValidator(9999)]],
-            'revenue2014': [data.revenue2014, [Validators.required, ValidationService.minValidator(-9999), ValidationService.maxValidator(9999)]],
-            'profit2014': [data.profit2014, [Validators.required, ValidationService.minValidator(-9999), ValidationService.maxValidator(9999)]],
-            'revenue2015': [data.revenue2015, [Validators.required, ValidationService.minValidator(-9999), ValidationService.maxValidator(9999)]],
-            'profit2015': [data.profit2015, [Validators.required, ValidationService.minValidator(-9999), ValidationService.maxValidator(9999)]],
-            'revenue2016': [data.revenue2016, [Validators.required, ValidationService.minValidator(-9999), ValidationService.maxValidator(9999)]],
-            'profit2016': [data.profit2016, [Validators.required, ValidationService.minValidator(-9999), ValidationService.maxValidator(9999)]],
-            'revenue2017': [data.revenue2017, [Validators.required, ValidationService.minValidator(-9999), ValidationService.maxValidator(9999)]],
-            'profit2017': [data.profit2017, [Validators.required, ValidationService.minValidator(-9999), ValidationService.maxValidator(9999)]]
+            'revenue2013': [data.revenue2013, [Validators.required, ValidationService.minValidator(this.MIN_VALUE), ValidationService.maxValidator(this.MAX_VALUE)]],
+            'profit2013': [data.profit2013, [Validators.required, ValidationService.minValidator(this.MIN_VALUE), ValidationService.maxValidator(this.MAX_VALUE)]],
+            'revenue2014': [data.revenue2014, [Validators.required, ValidationService.minValidator(this.MIN_VALUE), ValidationService.maxValidator(this.MAX_VALUE)]],
+            'profit2014': [data.profit2014, [Validators.required, ValidationService.minValidator(this.MIN_VALUE), ValidationService.maxValidator(this.MAX_VALUE)]],
+            'revenue2015': [data.revenue2015, [Validators.required, ValidationService.minValidator(this.MIN_VALUE), ValidationService.maxValidator(this.MAX_VALUE)]],
+            'profit2015': [data.profit2015, [Validators.required, ValidationService.minValidator(this.MIN_VALUE), ValidationService.maxValidator(this.MAX_VALUE)]],
+            'revenue2016': [data.revenue2016, [Validators.required, ValidationService.minValidator(this.MIN_VALUE), ValidationService.maxValidator(this.MAX_VALUE)]],
+            'profit2016': [data.profit2016, [Validators.required, ValidationService.minValidator(this.MIN_VALUE), ValidationService.maxValidator(this.MAX_VALUE)]],
+            'revenue2017': [data.revenue2017, [Validators.required, ValidationService.minValidator(this.MIN_VALUE), ValidationService.maxValidator(this.MAX_VALUE)]],
+            'profit2017': [data.profit2017, [Validators.required, ValidationService.minValidator(this.MIN_VALUE), ValidationService.maxValidator(this.MAX_VALUE)]]
         });
     }
 
     gotoDashboard(): void {
+        // Navigate to the dashboard page
         this.router.navigate(['/dashboard']);
     }
 
     checkForm(): boolean {
+        // Return true if settingsForm is invalid or is not dirty
         return (!this.settingsForm.valid || !this.settingsForm.dirty);
     }
 
@@ -65,9 +71,9 @@ export class SettingsComponent implements OnInit {
         if (this.checkForm()) 
             return;
 
+        // The settingsForm.value returns the form model
         this.settingService.updateIncome(this.settingsForm.value)
             .subscribe(data => {
-                this.result = data
                 if (data && data > 0) {
                     this.modal.alert()
                         .size('sm')
@@ -86,6 +92,6 @@ export class SettingsComponent implements OnInit {
                         .message('Failed to save!')
                         .open();
                 }
-            })
+            });
     }
 }

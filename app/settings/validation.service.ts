@@ -1,6 +1,7 @@
 import { AbstractControl, ValidatorFn } from '@angular/forms';
 
 export class ValidationService {
+    
     static minValidator(min: number): ValidatorFn {
         return (control: AbstractControl): {[key: string]: any} => {
             const input = control.value;

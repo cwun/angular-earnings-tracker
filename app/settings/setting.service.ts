@@ -1,29 +1,31 @@
 import { Http, Response, Headers }  from '@angular/http';
 import { Injectable }               from '@angular/core';
-import { Observable }               from 'rxjs/Rx';
+
+import { Observable }               from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
-import { Income }                  from './income.model';
+import { Income }                   from './income.model';
 
 @Injectable()
 export class SettingService {
 
-    //private apiUrl = 'api/settings.json';
-    private apiUrl = 'http://localhost/earnings-tracker-core-apis/api/settings';  // URL to web API
+    private apiUrl = 'http://earnings-tracker-net-core-apis.azurewebsites.net/api/settings'; // URL to Demo API
+    //private apiUrl = 'http://localhost/earnings-tracker-core-apis/api/settings';  // URL to Your Web API
     
     private headers = new Headers({'Content-Type': 'application/json'});
 
     constructor(private http: Http) { }
 
     getIncome(id: number) : Observable<Income> {
-        const url = (this.apiUrl === 'api/settings.json') ? this.apiUrl : `${this.apiUrl}/${id}`;
+        const url = `${this.apiUrl}/${id}`;
         return this.http.get(url)
             .map(this.extractData)
             .catch(this.handleError);
     }
 
     updateIncome(item: Income) : Observable<any> {
-        // This api call is designed to work with the database at the back-end
         const url = `${this.apiUrl}/${item.id}`;
         return this.http.put(url, JSON.stringify(item), {headers: this.headers})
             .map(this.extractData)

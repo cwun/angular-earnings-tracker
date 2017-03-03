@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
 })
 
 export class NavbarComponent {
-    heading = 'Angular 2 Earnings Tracker';
+    heading = 'Angular Earnings Tracker';
 }

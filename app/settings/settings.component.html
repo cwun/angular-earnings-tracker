@@ -6,10 +6,10 @@
                     <span>{{name}}</span>
                 </div>
                 <div class="alert alert-warning text-center">
-                    <strong>Attention!</strong> All fields are required (range between -9999 and 9999).
+                    <strong>Attention!</strong> All fields are required with value between {{MIN_VALUE}} and {{MAX_VALUE}}).
                 </div>
                 <div class="form-stage text-center">
-                    <form [formGroup]="settingsForm" (ngSubmit)="onSubmit()">
+                    <form [formGroup]="settingsForm" (ngSubmit)="onSubmit()" novalidate>
                         <div class="form-horizontal">
                             <div class="form-group">
                                 <div class="col-xs-offset-2 col-xs-5 col-sm-offset-3 col-sm-4 text-center">
