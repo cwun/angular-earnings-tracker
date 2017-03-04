@@ -10,9 +10,9 @@ import { Income }                   from './income.model';
 
 @Injectable()
 export class SettingService {
-
-    private apiUrl = 'http://earnings-tracker-net-core-apis.azurewebsites.net/api/settings'; // URL to Demo API
-    //private apiUrl = 'http://localhost/earnings-tracker-core-apis/api/settings';  // URL to Your Web API
+    
+    // URL to Your Web API
+    private apiUrl = 'http://localhost/earnings-tracker-core-apis/api/settings';  
     
     private headers = new Headers({'Content-Type': 'application/json'});
 

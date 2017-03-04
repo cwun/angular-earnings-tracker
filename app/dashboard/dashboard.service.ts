@@ -7,9 +7,9 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class DashboardService {
-
-    private url = 'http://earnings-tracker-net-core-apis.azurewebsites.net/api/dashboards'; // URL to DEMO API
-    //private url = 'http://localhost/earnings-tracker-core-apis/api/dashboards';  // URL to Your Web API
+    
+    // URL to Your Web API
+    private url = 'http://localhost/earnings-tracker-core-apis/api/dashboards';
 
     constructor(private http: Http) { }
 
