@@ -1,7 +1,7 @@
 {
-  "name": "ng2-project-tracker",
+  "name": "angular-earnings-tracker",
   "version": "1.0.0",
-  "description": "Angular 2 Issue Tracker",
+  "description": "Angular Earnings Tracker",
   "scripts": {
     "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
     "lite": "lite-server",
